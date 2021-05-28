@@ -23,8 +23,9 @@
             
             <div id="aiteko-side-handler">
                 
-                    <button class="hamburger" onClick="slidemenu()">
-                        <i class="fas fa-bars fa-2x"></i>
+                    <button class="hamburger">
+                        <div id="three-lines"><i class="fas fa-bars fa-2x"></i></div>
+                     <div id="arrow-icon"> <i class="fas fa-arrow-left fa-2x"></i></div> 
                     </button>
                     
                 
@@ -103,6 +104,9 @@ body {
     width: 100%;
     background-size: cover;
 }
+button.hamburger {
+    border: 0;
+}
 #aitekOverlay {
     background-color: #141414;
     width: 100%;
@@ -129,14 +133,7 @@ body {
     text-decoration: none;
     color: #fff;
 }
-@keyframes mymove {
-  from {left: 0px;}
-  to {left: -30px;}
-}
-.aitekoSideanimation{
 
-  animation: mymove 5s;
-}
 </style>
 
 <script>
@@ -167,12 +164,23 @@ tl.fromTo('#aiteko-side-handler',
 { x: '-75px', opacity:1, duration:0.5,  ease: "expo.inOut"}
 );
 
+tl.fromTo('#three-lines', 
+ { opacity:1,  },
+{ opacity:0, display:"none" },
+);
 
+tl.fromTo('#arrow-icon', 
+ { opacity:0,  display:"none"  },
+{ opacity:1,  display:"block"},
+);
 
 tl.fromTo('#aitekOverlay', 
 { x:'-130vw', opacity:1, ease: "expo.inOut"},
-{ x: '0vw', opacity:1, ease: "expo.inOut"}
+{ x: '0vw', opacity:1, ease: "expo.inOut", duration:1.5}
 );
+
+
+
 
 
 hamburger.addEventListener('click', () => {
