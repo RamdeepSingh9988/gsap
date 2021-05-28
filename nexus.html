@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>One Page Wonder - Start Bootstrap Template</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <header>
+        <div id="aitekoSide">
+            <div class="brand"><img src="assets/img/Nlogo.png"></div>
+            </div>
+            
+            <div id="aiteko-side-handler">
+                
+                    <button class="hamburger" onClick="slidemenu()">
+                        <i class="fas fa-bars fa-2x"></i>
+                    </button>
+                    
+                
+            </div>
+            <div id="aitekOverlay">
+                <div class="menu">
+                    <div class="aiteko-menu-container">
+                        <ul> 
+                            <li>
+                            <a href="#">Home Page</a>
+                            </li>
+                            <li>
+                            <a href="#">About</a>
+                            </li>
+                             <li>
+                             <a href="#">Contact</a>
+                             </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </header>
+<body>
+<div class="contentsec">
+    <div class="banner1"></div>
+</div>
+    
+</body>
+
+<style>
+#aitekoSide {
+    width: 5vw;
+    background-color: #000;
+    height: 100vh;
+    position: absolute;
+    z-index: 999;
+}
+body {
+   margin:0px;
+   padding:0px;
+}
+.brand {
+    display: block;
+    position: absolute;
+    width: auto;
+    padding: 0px;
+    text-align: center;
+    height: 70px;
+    line-height: 66px;
+    opacity: 1;
+    top: 50%;
+    left: 0px;
+    margin-top: -34.5px;
+    margin-left: -59.5px;
+    transform: rotate( -90deg);
+    transform-origin: center center;
+    
+}
+#aiteko-side-handler {
+    background-color: #eee;
+    height: 100vh;
+    width: 4vw;
+    position: fixed;
+    left: 76px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    z-index: 999;
+}
+.hamburger {
+    margin: 0px auto;
+}
+.banner1 {
+    background-image: url(http://nexusfleck.com/images/buildings-chicago-city-36369.jpg);
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+}
+#aitekOverlay {
+    background-color: #141414;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 4vw;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.aiteko-menu-container ul {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900 !important;
+    font-size: 2rem;
+    text-decoration: none;
+    line-height: 1.25em;
+}
+.aiteko-menu-container ul li {
+    list-style: none;
+    line-height: 2em;
+}
+.aiteko-menu-container ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: -30px;}
+}
+.aitekoSideanimation{
+
+  animation: mymove 5s;
+}
+</style>
+
+<script>
+ const hamburger = document.querySelector('.hamburger');
+ const aitekOverlay = document.querySelector('#aitekOverlay')
+
+ var tl = gsap.timeline({
+    paused: true,
+  reversed: true,
+  overwrite: true
+})
+
+
+
+
+tl.fromTo('.aiteko-menu-container', 
+{ y:'90px', opacity:0, duration:0.5,  ease: "expo.inOut"},
+{ y: '0px', opacity:1, duration:0.5,  ease: "expo.inOut"}
+);
+
+tl.fromTo('#aitekoSide', 
+{ x:'0px', opacity:1, duration:0.2,  ease: "expo.inOut"},
+{ x: '-90px', opacity:0, duration:0.2,  ease: "expo.inOut"}
+);
+
+tl.fromTo('#aiteko-side-handler', 
+{ x:'0px', opacity:1, duration:0.5,  ease: "expo.inOut"},
+{ x: '-75px', opacity:1, duration:0.5,  ease: "expo.inOut"}
+);
+
+
+
+tl.fromTo('#aitekOverlay', 
+{ x:'-130vw', opacity:1, ease: "expo.inOut"},
+{ x: '0vw', opacity:1, ease: "expo.inOut"}
+);
+
+
+hamburger.addEventListener('click', () => {
+    tl.reversed() ? tl.play():tl.reverse();
+
+    var x = document.getElementById("aitekoSide");
+})
+
+
+
+
+</script>
+</html>
